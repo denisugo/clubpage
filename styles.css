@@ -1,0 +1,280 @@
+/* Common */
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+body {
+  background-color: #1377a8;
+}
+
+.container {
+  max-width: 100%;
+  display: grid;
+  grid-template-areas: "nav " "header " "motivation" "events-heading" "events " "quote" "places-heading" "places" "places-desc" "restaurants-heading" "restaurants" "restaurants-desc" "footer";
+
+  /* grid-template-rows: 0.7fr repeat(2, 2fr) repeat(3, auto 3fr 4fr) 0.6fr; */
+  grid-template-rows: 70px repeat(2, 200px) repeat(3, auto 300px 400px) 60px;
+  /* grid-template-rows: 70px repeat(2, 200px) repeat(3, auto auto 400px) 60px; */
+  grid-template-columns: 1fr;
+}
+
+img {
+  width: 100%;
+  height: 80%;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+.event,
+.place,
+.restaurant {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  overflow: hidden;
+  align-items: center;
+}
+
+.event h4,
+.place h4,
+.restaurant h4 {
+  font-size: 1.5rem;
+  color: #4cbef5;
+  /* background-color: #4cbef5; */
+  width: 100%;
+  text-align: center;
+}
+
+@media only screen and (max-width: 700px) {
+  .container {
+    grid-template-areas: "header " "motivation" "events-heading" "events " "quote" "places-heading" "places" "places-desc" "restaurants-heading" "restaurants" "restaurants-desc" "footer";
+    grid-template-rows: repeat(2, 200px) repeat(3, auto 300px 400px) 60px;
+  }
+}
+
+@media only screen and (max-width: 490px) {
+  .container {
+    grid-template-rows: repeat(2, 200px) repeat(3, 100px auto 400px) 60px;
+  }
+}
+
+/* Header */
+header {
+  background-color: #4cbef5;
+  grid-area: header;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+
+header h1 {
+  color: #2d2d2d;
+  font-weight: bold;
+  font-size: 5rem;
+}
+/* Navigation */
+nav {
+  background-color: #f5a84b;
+  grid-area: nav;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+nav a {
+  text-decoration: none;
+  color: #2d2d2d;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+@media only screen and (max-width: 700px) {
+  nav {
+    display: none;
+  }
+
+  header h1 {
+    color: #2d2d2d;
+    font-weight: bold;
+    font-size: 3rem;
+  }
+}
+
+/* Main */
+/* Motivation */
+.motivation {
+  grid-area: motivation;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  margin: 15px;
+}
+
+.motivation h2 {
+  color: #f5a84b;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.motivation p {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 490px) {
+  .motivation h2 {
+    color: #f5a84b;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .motivation p {
+    font-size: 1rem;
+  }
+}
+
+/* Events */
+.events-heading {
+  grid-area: events-heading;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  color: #2d2d2d;
+  font-weight: bold;
+  font-size: 2rem;
+  background-color: #ffbb69;
+}
+
+.events {
+  grid-area: events;
+  display: grid;
+  max-width: 100%;
+  grid-auto-columns: 1fr;
+  grid-auto-flow: column;
+}
+
+@media only screen and (max-width: 490px) {
+  .events {
+    grid-area: events;
+    display: grid;
+    max-width: 100%;
+    grid-auto-rows: 1fr;
+    grid-auto-flow: row;
+  }
+}
+
+/* Quote */
+.quote {
+  grid-area: quote;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  color: #2d2d2d;
+  font-weight: bold;
+  font-size: 2rem;
+  margin: 15px;
+}
+
+/* Places */
+.places-heading {
+  grid-area: places-heading;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  color: #2d2d2d;
+  font-weight: bold;
+  font-size: 2rem;
+  background-color: #ffbb69;
+}
+
+.places {
+  grid-area: places;
+  display: grid;
+  width: 100%;
+  grid-auto-columns: 1fr;
+  grid-auto-flow: column;
+}
+
+/* Places description */
+.places-desc {
+  grid-area: places-desc;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  color: #2d2d2d;
+  font-weight: bold;
+  font-size: 2rem;
+  margin: 15px;
+}
+
+@media only screen and (max-width: 490px) {
+  .places {
+    grid-area: places;
+    display: grid;
+    max-width: 100%;
+    grid-auto-rows: 1fr;
+    grid-auto-flow: row;
+  }
+}
+
+/* Restaurants */
+.restaurants-heading {
+  grid-area: restaurants-heading;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  color: #2d2d2d;
+  font-weight: bold;
+  font-size: 2rem;
+  background-color: #ffbb69;
+}
+
+.restaurants {
+  grid-area: restaurants;
+  display: grid;
+  width: 100%;
+  grid-auto-columns: 1fr;
+  grid-auto-flow: column;
+}
+
+/* Restaurants description */
+.restaurants-desc {
+  grid-area: restaurants-desc;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  color: #2d2d2d;
+  font-weight: bold;
+  font-size: 2rem;
+  margin: 15px;
+}
+
+@media only screen and (max-width: 490px) {
+  .restaurants {
+    grid-area: restaurants;
+    display: grid;
+    max-width: 100%;
+    grid-auto-rows: 1fr;
+    grid-auto-flow: row;
+  }
+}
+
+/* Footer */
+footer {
+  grid-area: footer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #4cbef5;
+}
+/* Contact */
+footer .contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  align-items: center;
+}
